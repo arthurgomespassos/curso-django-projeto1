@@ -15,18 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 
 
-def home(request):
+def home(request: HttpRequest) -> HttpResponse:
     return HttpResponse("Página Home")
 
 
-def contato(request):
+def contato(request: HttpRequest) -> HttpResponse:
     return HttpResponse("Página contato")
 
 
-def sobre(request):
+def sobre(request: HttpRequest) -> HttpResponse:
     return HttpResponse("Página sobre")
 
 
