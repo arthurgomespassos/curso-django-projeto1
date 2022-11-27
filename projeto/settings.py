@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Meus apps abaixo, se não colocar os meu apps, dá erro pois o django não
+    # saberá onde buscar templates e outras coisas:
+    "recipes"
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,12 @@ ROOT_URLCONF = "projeto.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # em "DIRS" você pode adicionar mais caminhos para sua aplicação buscar
+        # pelos templates, "DIRS" por default é um array vazio
+        "DIRS": [
+            BASE_DIR / 'base_templates',
+            BASE_DIR / 'recipes/templates'
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
